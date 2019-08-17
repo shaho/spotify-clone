@@ -4,7 +4,8 @@
   "description": "React-ify Spotify",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "author": "Shaho Toofani",
   "license": "ISC",
@@ -12,5 +13,10 @@
     "express": "^4.17.1",
     "querystring": "^0.2.0",
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "dotenv": "^8.0.0",
+    "nodemon": "^1.19.1"
   }
 }
