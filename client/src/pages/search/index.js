@@ -1,15 +1,13 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+// import { createStructuredSelector } from "reselect";
+import { fetchAlbumsStart } from "../../redux/search/actions";
 
-import { fetchNewReleasesStart } from "../redux/browse/actions";
-import { selectNewReleasesItems } from "../redux/browse/selectors";
-
-const NewReleases = ({ items, fetchNewReleasesStart }) => {
+const Search = ({ albums, fetchAlbumsStart, ...props }) => {
+  console.log(props);
   useEffect(() => {
-    fetchNewReleasesStart();
-  }, [fetchNewReleasesStart]);
-
+    fetchAlbumsStart();
+  }, [fetchAlbumsStart]);
   return (
     <div>
       <h4>NewReleases</h4>
@@ -20,9 +18,9 @@ const NewReleases = ({ items, fetchNewReleasesStart }) => {
           backgroundColor: "#c0c0c0",
         }}
       />
-      {items ? (
+      {albums.length ? (
         <div>
-          {items.map((item) => {
+          {albums.map((item) => {
             return (
               <div style={{ padding: "10%" }} key={item.id}>
                 <img src={item.images[2].url} alt="" />
@@ -44,17 +42,22 @@ const NewReleases = ({ items, fetchNewReleasesStart }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  items: selectNewReleasesItems,
-});
-
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    fetchNewReleasesStart: () => dispatch(fetchNewReleasesStart()),
+    albums: state.search.albums,
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  // const searchQuery = ownProps.match.params.query;
+  // console.log("QUERY: ", query);
+  return {
+    fetchAlbumsStart: () =>
+      dispatch(fetchAlbumsStart(ownProps.match.params.query)),
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(NewReleases);
+)(Search);

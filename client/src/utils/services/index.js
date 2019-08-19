@@ -18,3 +18,29 @@ export const getNewReleases = () => {
     throw error;
   }
 };
+
+export const getSearchByAlbum = (query) => {
+  let parsed = querySring.parse(window.location.search);
+  let accessToken = parsed.access_token;
+  // console.log(accessToken);
+
+  // let queryParsed = querySring.parse(window.location.search);
+  // // let query = queryParsed.query;
+
+  console.log("getSearchByAlbum query: ", query);
+
+  try {
+    const tets = axios.get(
+      `${config.SEARCH}?q=${query}&type=album&limit=${config.LIMIT}`,
+      {
+        headers: {
+          authorization: `Bearer ${accessToken}`,
+        },
+      },
+    );
+    console.log(tets);
+    return tets;
+  } catch (error) {
+    throw error;
+  }
+};

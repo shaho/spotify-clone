@@ -1,0 +1,23 @@
+.header {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  .logo-container {
+    // height: 100%;
+    display: inline-block;
+    width: 70px;
+    padding: 25px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    div {
+      padding-left: 5px;
+      border-left: 2px solid #1db954;
+    }
+    span {
+      letter-spacing: 0.08rem;
+    }
+  }
+}
