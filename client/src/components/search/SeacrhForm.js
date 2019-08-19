@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 
-const SearchForm = () => {
+const SearchForm = ({ history }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleChange = (e) => {
@@ -29,4 +30,4 @@ const SearchForm = () => {
   );
 };
 
-export default SearchForm;
+export default withRouter(SearchForm);

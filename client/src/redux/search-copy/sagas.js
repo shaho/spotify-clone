@@ -6,7 +6,7 @@ import SearchActionTypes from "./types";
 
 export function* fetchAlbumsAsync(action) {
   try {
-    const response = yield call(service.getSearch, action.payload);
+    const response = yield call(service.getSearchByAlbum, action.payload);
     yield put(fetchAlbumsSuccess(response.data.albums.items));
   } catch (error) {
     yield put(fetchAlbumsFailure(error.message));
