@@ -1,17 +1,15 @@
 import axios from "axios";
-import querySring from "query-string";
+// import querySring from "query-string";
 
 import * as config from "../constants";
 
 export const getNewReleases = () => {
-  let parsed = querySring.parse(window.location.search);
-  let accessToken = parsed.access_token;
-  // console.log(accessToken);
+  // console.log("service", sessionStorage.getItem("accessToken"));
 
   try {
     return axios.get(config.NEW_RELEASES, {
       headers: {
-        authorization: `Bearer ${accessToken}`,
+        authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
       },
     });
   } catch (error) {
@@ -20,9 +18,6 @@ export const getNewReleases = () => {
 };
 
 export const getSearchByAlbum = (query) => {
-  let parsed = querySring.parse(window.location.search);
-  let accessToken = parsed.access_token;
-
   console.log("getSearchByAlbum query: ", query);
 
   try {
@@ -30,7 +25,7 @@ export const getSearchByAlbum = (query) => {
       `${config.SEARCH}?q=${query}&type=album&limit=${config.LIMIT}`,
       {
         headers: {
-          authorization: `Bearer ${accessToken}`,
+          authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
         },
       },
     );
@@ -42,24 +37,17 @@ export const getSearchByAlbum = (query) => {
 };
 
 export const getSearch = (query) => {
-  let parsed = querySring.parse(window.location.search);
-  let accessToken = parsed.access_token;
-
-  // console.log("getSearchByAlbum query: ", query);
-
   try {
-    const tets = axios.get(
+    return axios.get(
       `${config.SEARCH}?q=${query}&type=album,artist,playlist,track&limit=${
         config.LIMIT
       }`,
       {
         headers: {
-          authorization: `Bearer ${accessToken}`,
+          authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
         },
       },
     );
-    console.log(tets);
-    return tets;
   } catch (error) {
     throw error;
   }

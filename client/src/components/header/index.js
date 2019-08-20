@@ -1,28 +1,24 @@
 import React from "react";
 // import {} from "react-router-dom";
-import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./index.styles.scss";
 import SearchForm from "../search/SeacrhForm";
 
-const Header = ({ history }) => {
+const Header = () => {
   return (
     <div className="header">
-      <div className="logo-container">
-        <div>
-          Reactify <span>Spotify</span>
+      <Link to="/">
+        <div className="logo-container">
+          <div>
+            Reactify <span>Spotify</span>
+          </div>
         </div>
-      </div>
-
-      <div>
-        <button onClick={() => history.push("/search/shajarian")}>
-          Search Shajarian
-        </button>
-      </div>
+      </Link>
 
       <SearchForm />
     </div>
   );
 };
 
-export default withRouter(Header);
+export default Header;

@@ -1,22 +1,22 @@
 import SearchActionTypes from "./types";
 
-export const fetchAlbumsStart = (query) => {
+export const fetchSearchStart = (query) => {
   return {
-    type: SearchActionTypes.FETCH_SEARCH_ALBUMS_START,
+    type: SearchActionTypes.FETCH_SEARCH_START,
     payload: query,
   };
 };
 
-export const fetchAlbumsSuccess = (albums) => {
+export const fetchSearchSuccess = (results) => {
   return {
-    type: SearchActionTypes.FETCH_SEARCH_ALBUMS_SUCCESS,
-    payload: albums,
+    type: SearchActionTypes.FETCH_SEARCH_SUCCESS,
+    payload: results,
   };
 };
 
-export const fetchAlbumsFailure = (errorMessage) => {
+export const fetchSearchFailure = (errorMessage) => {
   return {
-    type: SearchActionTypes.FETCH_SEARCH_ALBUMS_FAILURE,
+    type: SearchActionTypes.FETCH_SEARCH_FAILURE,
     payload: errorMessage,
   };
 };

@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import NewReleases from "../../components/NewReleases";
+import querySring from "query-string";
 
 const HomePage = () => {
-  // useEffect(() => {
-  //   //
-  // }, []);
+  useEffect(() => {
+    const parsed = querySring.parse(window.location.search);
+    const accessToken = parsed.access_token;
+    if (accessToken) sessionStorage.setItem("accessToken", accessToken);
+  }, []);
   return (
     <div>
       <h1>HomePage Content</h1>

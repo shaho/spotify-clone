@@ -10,6 +10,7 @@ const SearchForm = ({ history }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    history.push(`/search/${searchQuery.trim()}`);
   };
 
   return (
