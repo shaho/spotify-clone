@@ -1,24 +1,21 @@
 import React from "react";
-// import { createBrowserHistory } from "history";
-// import { Switch, Route, Router } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 
 import "./App.scss";
 import Header from "./components/header";
 import HomePage from "./pages/homepage";
+import Categories from "./pages/categories/Categories";
 import search from "./pages/search";
 
 function App() {
-  // const customHistory = createBrowserHistory();
   return (
     <div className="App">
       <Header />
-      {/* <Router history={customHistory}> */}
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/categories" component={Categories} />
         <Route path="/search/:query" component={search} />
       </Switch>
-      {/* </Router> */}
     </div>
   );
 }

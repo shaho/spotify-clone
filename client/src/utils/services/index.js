@@ -52,3 +52,15 @@ export const getSearch = (query) => {
     throw error;
   }
 };
+
+export const getCategories = () => {
+  try {
+    return axios.get(config.CATEGORIES, {
+      headers: {
+        authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};

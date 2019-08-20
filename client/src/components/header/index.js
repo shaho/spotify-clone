@@ -16,6 +16,7 @@ const Header = () => {
         </div>
       </Link>
 
+      <Link to="/categories">categories</Link>
       <SearchForm />
     </div>
   );

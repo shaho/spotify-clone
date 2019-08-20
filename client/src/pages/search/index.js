@@ -15,9 +15,9 @@ import Spinner from "../../components/layout/Spinner";
 import Album from "../../components/album";
 import Artist from "../../components/artist";
 import Track from "../../components/track";
+import Playlist from "../../components/playlist";
 
 import "./index.styles.scss";
-import Playlist from "../../components/playlist";
 
 const Search = ({
   isSearchFetching,
