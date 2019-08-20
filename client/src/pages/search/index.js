@@ -3,43 +3,89 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import { fetchSearchStart } from "../../redux/search/actions";
-import { selectAlbumsItems } from "../../redux/search/selectors";
+import {
+  selectIsSearchFetching,
+  selectAlbums,
+  selectArtists,
+  selectPlaylists,
+  selectTracks,
+} from "../../redux/search/selectors";
+
+import Spinner from "../../components/layout/Spinner";
+import Album from "../../components/album";
+import Artist from "../../components/artist";
+import Track from "../../components/track";
 
 import "./index.styles.scss";
+import Playlist from "../../components/playlist";
 
-const Search = ({ items, fetchSearchStart }) => {
+const Search = ({
+  isSearchFetching,
+  fetchSearchStart,
+  albums,
+  artists,
+  playlists,
+  tracks,
+}) => {
   useEffect(() => {
     fetchSearchStart();
   }, [fetchSearchStart]);
   return (
-    <div>
-      {/* const items  */}
-      <h4>Search</h4>
+    <div className="temp-container">
+      <section>
+        <h3>Songs</h3>
+        <div className="grid">
+          {isSearchFetching && <Spinner />}
+          {tracks &&
+            tracks.items.map((item) => {
+              return <Track track={item} key={item.id} />;
+            })}
+        </div>
+      </section>
 
-      <div className="grid">
-        {/* {items.map((item) => {
-          return (
-            <div style={{ padding: "10%" }} key={item.id}>
-              <img src={item.images[2].url} alt="" />
-              <h3>{item.name}</h3>
-              <span>Released at: {item.release_date}</span>
-            </div>
-          );
-        })} */}
-      </div>
+      <section>
+        <h3>Artists</h3>
+        <div className="grid">
+          {isSearchFetching && <Spinner />}
+          {artists &&
+            artists.items.map((item) => {
+              return <Artist artist={item} key={item.id} />;
+            })}
+        </div>
+      </section>
+
+      <section>
+        <h3>Albums</h3>
+        <div className="grid">
+          {isSearchFetching && <Spinner />}
+          {albums &&
+            albums.items.map((item) => {
+              return <Album album={item} key={item.id} />;
+            })}
+        </div>
+      </section>
+
+      <section>
+        <h3>Playlists</h3>
+        <div className="grid">
+          {isSearchFetching && <Spinner />}
+          {playlists &&
+            playlists.items.map((item) => {
+              return <Playlist playlist={item} key={item.id} />;
+            })}
+        </div>
+      </section>
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  // console.log("State:", state.search);
-  return {
-    items: state.search.results.albums,
-  };
-};
-// const mapStateToProps = createStructuredSelector({
-//   albums: selectAlbumsItems,
-// });
+const mapStateToProps = createStructuredSelector({
+  isSearchFetching: selectIsSearchFetching,
+  albums: selectAlbums,
+  artists: selectArtists,
+  playlists: selectPlaylists,
+  tracks: selectTracks,
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {

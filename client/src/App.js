@@ -3,7 +3,7 @@ import React from "react";
 // import { Switch, Route, Router } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 
-import "./App.css";
+import "./App.scss";
 import Header from "./components/header";
 import HomePage from "./pages/homepage";
 import search from "./pages/search";
