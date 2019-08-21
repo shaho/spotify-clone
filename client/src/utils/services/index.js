@@ -64,3 +64,15 @@ export const getCategories = () => {
     throw error;
   }
 };
+
+export const getGenres = (id) => {
+  try {
+    return axios.get(`${config.CATEGORIES}/${id}/playlists`, {
+      headers: {
+        authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};

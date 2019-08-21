@@ -5,6 +5,7 @@ import "./App.scss";
 import Header from "./components/header";
 import HomePage from "./pages/homepage";
 import Categories from "./pages/categories/Categories";
+import Playlists from "./pages/categories/Playlists";
 import search from "./pages/search";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/categories" component={Categories} />
+        <Route path="/categories/:id" component={Playlists} />
         <Route path="/search/:query" component={search} />
       </Switch>
     </div>

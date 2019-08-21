@@ -22,7 +22,7 @@ const Categories = ({ categories, fetchCategoriesStart }) => {
                 <Link to={`/categories/${item.id}`}>
                   <div
                     style={{
-                      backgroundImage: `${item.icons[0].url}`,
+                      backgroundImage: `url(${item.icons[0].url})`,
                       backgroundSize: "cover",
                       width: "100px",
                       height: "100px",
