@@ -7,6 +7,7 @@ import HomePage from "./pages/homepage";
 import Categories from "./pages/categories/Categories";
 import Playlists from "./pages/categories/Playlists";
 import search from "./pages/search";
+import Player from "./components/player";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/categories/:id" component={Playlists} />
         <Route path="/search/:query" component={search} />
       </Switch>
+      <Player />
     </div>
   );
 }

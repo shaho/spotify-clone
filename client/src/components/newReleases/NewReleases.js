@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { fetchNewReleasesStart } from "../redux/browse/actions";
-import { selectNewReleasesItems } from "../redux/browse/selectors";
+import { fetchNewReleasesStart } from "../../redux/browse/actions";
+import { selectNewReleasesItems } from "../../redux/browse/selectors";
 
 const NewReleases = ({ items, fetchNewReleasesStart }) => {
   useEffect(() => {
@@ -20,7 +20,7 @@ const NewReleases = ({ items, fetchNewReleasesStart }) => {
           backgroundColor: "#c0c0c0",
         }}
       />
-      {items ? (
+      {items.length ? (
         <div>
           {items.map((item) => {
             return (

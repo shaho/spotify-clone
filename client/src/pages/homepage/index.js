@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import NewReleases from "../../components/NewReleases";
+import NewReleases from "../../components/newReleases/NewReleases";
 import querySring from "query-string";
 
 const HomePage = () => {
