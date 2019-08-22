@@ -8,7 +8,7 @@ import SearchForm from "../search/SeacrhForm";
 const Header = () => {
   return (
     <div className="header">
-      <Link to="/">
+      <Link to="/categories">
         <div className="logo-container">
           <div>
             Reactify <span>Spotify</span>
@@ -17,6 +17,7 @@ const Header = () => {
       </Link>
 
       <Link to="/categories">categories</Link>
+      <Link to="/newrealeses">New Releases</Link>
       <SearchForm />
     </div>
   );

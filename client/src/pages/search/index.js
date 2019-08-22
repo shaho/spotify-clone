@@ -31,7 +31,7 @@ const Search = ({
     fetchSearchStart();
   }, [fetchSearchStart]);
   return (
-    <div className="temp-container">
+    <div className="container">
       <section>
         <h3>Songs</h3>
         <div className="grid">

@@ -1,11 +1,8 @@
 import axios from "axios";
-// import querySring from "query-string";
 
 import * as config from "../constants";
 
 export const getNewReleases = () => {
-  // console.log("service", sessionStorage.getItem("accessToken"));
-
   try {
     return axios.get(config.NEW_RELEASES, {
       headers: {
@@ -68,6 +65,18 @@ export const getCategories = () => {
 export const getGenres = (id) => {
   try {
     return axios.get(`${config.CATEGORIES}/${id}/playlists`, {
+      headers: {
+        authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getPlaylist = (id) => {
+  try {
+    return axios.get(`${config.PLAYLIST}/${id}`, {
       headers: {
         authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
       },

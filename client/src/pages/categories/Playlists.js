@@ -26,7 +26,7 @@ const Playlists = ({ isPlaylistFetching, fetchPlaylistsStart, playlists }) => {
             playlists.items.map((item) => {
               return (
                 <div key={item.id}>
-                  <Link to={`/categories/${item.id}`}>
+                  <Link to={`/playlist/${item.id}`}>
                     <div
                       style={{
                         backgroundImage: `url(${item.images[0].url})`,

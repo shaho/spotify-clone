@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import { fetchNewReleasesStart } from "../../redux/browse/actions";
-import { selectNewReleasesItems } from "../../redux/browse/selectors";
+import {
+  selectIsNewReleasesFetching,
+  selectNewReleasesItems,
+} from "../../redux/browse/selectors";
 
 const NewReleases = ({ items, fetchNewReleasesStart }) => {
   useEffect(() => {
@@ -13,13 +16,7 @@ const NewReleases = ({ items, fetchNewReleasesStart }) => {
   return (
     <div>
       <h4>NewReleases</h4>
-      <div
-        style={{
-          display: "inline-block",
-          padding: "10px",
-          backgroundColor: "#c0c0c0",
-        }}
-      />
+
       {items.length ? (
         <div>
           {items.map((item) => {
@@ -46,6 +43,7 @@ const NewReleases = ({ items, fetchNewReleasesStart }) => {
 
 const mapStateToProps = createStructuredSelector({
   items: selectNewReleasesItems,
+  isLoading: selectIsNewReleasesFetching,
 });
 
 const mapDispatchToProps = (dispatch) => {
