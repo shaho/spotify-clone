@@ -21,14 +21,20 @@ const Playlist = ({ isPlaylistFetching, fetchPlaylistStart, playlist }) => {
         <div>
           {isPlaylistFetching && <Spinner />}
           <h1>Playlist: {playlist.name}</h1>
-          {/* {console.log("clg", playlist)} */}
 
-          {/* <ul>
-            {playlist.tracks.items &&
-              playlist.tracks.items.map((item) => {
-                return <li>1</li>;
+          <h5 style={{ color: "red" }}>
+            note: Spotify API doesn't provide preview_url in their playlist's
+            object
+          </h5>
+
+          {playlist && playlist.tracks && playlist.tracks.items && (
+            <ul>
+              {console.log(playlist.tracks.items)}
+              {playlist.tracks.items.map((item) => {
+                return <li>{item.track.name}</li>;
               })}
-          </ul> */}
+            </ul>
+          )}
         </div>
       </section>
     </div>

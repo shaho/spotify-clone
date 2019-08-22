@@ -16,34 +16,33 @@ const Playlists = ({ isPlaylistFetching, fetchPlaylistsStart, playlists }) => {
     fetchPlaylistsStart();
   }, [fetchPlaylistsStart]);
   return (
-    <div className="temp-container">
-      <section>
-        <h3>Genres and Moods</h3>
+    <div className="container">
+      <h3>Genres and Moods</h3>
 
-        <div className="grid">
-          {isPlaylistFetching && <Spinner />}
-          {playlists.items &&
-            playlists.items.map((item) => {
-              return (
-                <div key={item.id}>
-                  <Link to={`/playlist/${item.id}`}>
-                    <div
-                      style={{
-                        backgroundImage: `url(${item.images[0].url})`,
-                        backgroundSize: "cover",
-                        width: "100px",
-                        height: "100px",
-                        margin: "10px 10px",
-                      }}
-                    >
-                      <h5>{item.name}</h5>
-                    </div>
-                  </Link>
-                </div>
-              );
-            })}
-        </div>
-      </section>
+      <div>
+        {isPlaylistFetching && <Spinner />}
+        {playlists.items &&
+          playlists.items.map((item) => {
+            return (
+              <div key={item.id}>
+                <Link to={`/playlist/${item.id}`}>
+                  <div
+                    className="Categories"
+                    style={{
+                      backgroundImage: `url(${item.images[0].url})`,
+                      backgroundSize: "cover",
+                      width: "100px",
+                      height: "100px",
+                      margin: "10px 10px",
+                    }}
+                  >
+                    <h5>{item.name}</h5>
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };
