@@ -1,2 +1,2 @@
-# 🎣 spotify-clone
-⚛️ React-ify Spotify - server and client version
+# ⚛️ spotify-clone
+ React-ify Spotify - server and client version
